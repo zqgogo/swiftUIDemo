@@ -10,12 +10,11 @@ import Foundation
 import Combine
 
 class CalculatorViewModel: ObservableObject {
-    let objectWillChange = PassthroughSubject<Void, Never>()
+    @Published var brain = CalculatorBrain.left("0")
+    @Published var history: [CalculatorButtonItem] = []
     
-    var brain = CalculatorBrain.left("0") {
-        willSet {
-            objectWillChange.send()
-        }
+    func apply(_ item: CalculatorButtonItem) {
+        brain = brain.apply(item: item)
+        history.append(item)
     }
-    
 }
