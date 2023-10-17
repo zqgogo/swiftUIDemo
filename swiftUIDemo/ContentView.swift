@@ -8,18 +8,25 @@
 import SwiftUI
 
 struct ContentView: View {
+//    @State private var brain: CalculatorBrain = .left("0")
+    @ObservedObject var viewModel = CalculatorViewModel()
     
     var body: some View {
         VStack(spacing: 12) {
             Spacer()
-            Text("0")
+            Text(viewModel.brain.output)
                 .foregroundColor(.black)
                 .font(.system(size: 76))
                 .minimumScaleFactor(0.5)
                 .padding(.trailing, 24)
                 .lineLimit(1)
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
-            CalculatorButtonPad()
+            
+            Button("Test") {    // 2
+                self.viewModel.brain = .left("1.23")
+            }
+            
+            CalculatorButtonPad(brain: $viewModel.brain)
                 .padding(.bottom)
         }
         .scaleEffect(Self.scale)
@@ -31,6 +38,7 @@ extension ContentView {
 }
 
 struct CalculatorButtonPad: View {
+    @Binding var brain: CalculatorBrain
     let pad: [[CalculatorButtonItem]] = [
         [.command(.clear), .command(.flip),
          .command(.percent), .op(.divide)],
@@ -43,13 +51,14 @@ struct CalculatorButtonPad: View {
     var body: some View {
         VStack(spacing: 8) {
             ForEach(pad, id: \.self) { row in
-                CalculatorButtonRow(row: row)
+                CalculatorButtonRow(brain: $brain, row: row)
             }
         }
     }
 }
 
 struct CalculatorButtonRow : View {
+    @Binding var brain: CalculatorBrain
     let row: [CalculatorButtonItem]
     
     var body: some View {
@@ -61,6 +70,7 @@ struct CalculatorButtonRow : View {
                     backgroundColorName: item.backgroundColorName)
                 {
                     print("Button: \(item.title)")
+                    self.brain = self.brain.apply(item: item)
                 }
             }
         }

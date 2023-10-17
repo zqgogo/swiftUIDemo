@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B2CF23E2ADE389F00048ABE /* CalculatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2CF23D2ADE389F00048ABE /* CalculatorViewModel.swift */; };
 		0BC1C3412AD7EF7D006D3099 /* CalculatorButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC1C3402AD7EF7D006D3099 /* CalculatorButtonItem.swift */; };
 		0BC1C34B2AD93678006D3099 /* CalculatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC1C34A2AD93678006D3099 /* CalculatorBrain.swift */; };
 		0BD22A112AD785D600CF9F5F /* swiftUIDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD22A102AD785D600CF9F5F /* swiftUIDemoApp.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B2CF23D2ADE389F00048ABE /* CalculatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewModel.swift; sourceTree = "<group>"; };
 		0BC1C3402AD7EF7D006D3099 /* CalculatorButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorButtonItem.swift; sourceTree = "<group>"; };
 		0BC1C34A2AD93678006D3099 /* CalculatorBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorBrain.swift; sourceTree = "<group>"; };
 		0BD22A0D2AD785D600CF9F5F /* swiftUIDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swiftUIDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +63,7 @@
 				0BD22A162AD785D800CF9F5F /* Preview Content */,
 				0BC1C3402AD7EF7D006D3099 /* CalculatorButtonItem.swift */,
 				0BC1C34A2AD93678006D3099 /* CalculatorBrain.swift */,
+				0B2CF23D2ADE389F00048ABE /* CalculatorViewModel.swift */,
 			);
 			path = swiftUIDemo;
 			sourceTree = "<group>";
@@ -144,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BD22A132AD785D600CF9F5F /* ContentView.swift in Sources */,
+				0B2CF23E2ADE389F00048ABE /* CalculatorViewModel.swift in Sources */,
 				0BD22A112AD785D600CF9F5F /* swiftUIDemoApp.swift in Sources */,
 				0BC1C34B2AD93678006D3099 /* CalculatorBrain.swift in Sources */,
 				0BC1C3412AD7EF7D006D3099 /* CalculatorButtonItem.swift in Sources */,
