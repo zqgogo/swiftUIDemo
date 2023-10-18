@@ -9,11 +9,14 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var viewModel = CalculatorViewModel()
+    @State private var editingHistory = false
     
     var body: some View {
         VStack(spacing: 12) {
             Button("操作履历: \(viewModel.history.count)") {
-                print(self.viewModel.history)
+                self.editingHistory = true
+            }.sheet(isPresented: $editingHistory) {
+                HistroyView(model: viewModel)
             }
             
             Spacer()

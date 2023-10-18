@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0B2CF23E2ADE389F00048ABE /* CalculatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2CF23D2ADE389F00048ABE /* CalculatorViewModel.swift */; };
+		0B2CF2402ADF7DAE00048ABE /* HistroyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2CF23F2ADF7DAE00048ABE /* HistroyView.swift */; };
 		0BC1C3412AD7EF7D006D3099 /* CalculatorButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC1C3402AD7EF7D006D3099 /* CalculatorButtonItem.swift */; };
 		0BC1C34B2AD93678006D3099 /* CalculatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC1C34A2AD93678006D3099 /* CalculatorBrain.swift */; };
 		0BD22A112AD785D600CF9F5F /* swiftUIDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD22A102AD785D600CF9F5F /* swiftUIDemoApp.swift */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		0B2CF23D2ADE389F00048ABE /* CalculatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewModel.swift; sourceTree = "<group>"; };
+		0B2CF23F2ADF7DAE00048ABE /* HistroyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistroyView.swift; sourceTree = "<group>"; };
 		0BC1C3402AD7EF7D006D3099 /* CalculatorButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorButtonItem.swift; sourceTree = "<group>"; };
 		0BC1C34A2AD93678006D3099 /* CalculatorBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorBrain.swift; sourceTree = "<group>"; };
 		0BD22A0D2AD785D600CF9F5F /* swiftUIDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swiftUIDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,6 +66,7 @@
 				0BC1C3402AD7EF7D006D3099 /* CalculatorButtonItem.swift */,
 				0BC1C34A2AD93678006D3099 /* CalculatorBrain.swift */,
 				0B2CF23D2ADE389F00048ABE /* CalculatorViewModel.swift */,
+				0B2CF23F2ADF7DAE00048ABE /* HistroyView.swift */,
 			);
 			path = swiftUIDemo;
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 				0BD22A132AD785D600CF9F5F /* ContentView.swift in Sources */,
 				0B2CF23E2ADE389F00048ABE /* CalculatorViewModel.swift in Sources */,
 				0BD22A112AD785D600CF9F5F /* swiftUIDemoApp.swift in Sources */,
+				0B2CF2402ADF7DAE00048ABE /* HistroyView.swift in Sources */,
 				0BC1C34B2AD93678006D3099 /* CalculatorBrain.swift in Sources */,
 				0BC1C3412AD7EF7D006D3099 /* CalculatorButtonItem.swift in Sources */,
 			);
