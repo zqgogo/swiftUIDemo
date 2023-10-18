@@ -8,29 +8,35 @@
 import SwiftUI
 
 struct HistroyView: View {
-    @ObservedObject var model: CalculatorViewModel
-    
+    @EnvironmentObject var viewModel: CalculatorViewModel
+    @Binding var editingHistory: Bool
+
     var body: some View {
         VStack {
+            Button("返回") {
+                self.editingHistory = false
+            }.padding()
+            Spacer(minLength: 50)
             // 1
-            if model.totalCount == 0 {
+            if viewModel.totalCount == 0 {
                 Text("没有履历")
             } else {
                 HStack {
                     Text("履历").font(.headline)
-                    Text("\(model.historyDetail)").lineLimit(nil)
+                    Text("\(viewModel.historyDetail)").lineLimit(nil)
                 }
                 HStack {
                     Text("显示").font(.headline)
-                    Text("\(model.brain.output)")
+                    Text("\(viewModel.brain.output)")
                 }
                 // 2
                 Slider(
-                    value: $model.slidingIndex,
-                    in: 0...Float(model.totalCount),
+                    value: $viewModel.slidingIndex,
+                    in: 0...Float(viewModel.totalCount),
                     step: 1
                 )
             }
+            Spacer()
         }.padding()
     }
 }
@@ -46,6 +52,6 @@ struct HistroyView: View {
 
 struct HistroyView_Previews: PreviewProvider {
     static var previews: some View {
-        HistroyView(model: CalculatorViewModel())
+        HistroyView(editingHistory: Binding.constant(false)).environmentObject(CalculatorViewModel())
     }
 }

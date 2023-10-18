@@ -8,16 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject var viewModel = CalculatorViewModel()
+    @EnvironmentObject var viewModel: CalculatorViewModel
+    
     @State private var editingHistory = false
+    @State private var showingResult = false
     
     var body: some View {
         VStack(spacing: 12) {
-            Button("操作履历: \(viewModel.history.count)") {
-                self.editingHistory = true
-            }.sheet(isPresented: $editingHistory) {
-                HistroyView(model: viewModel)
-            }
+            HistroyView(editingHistory: $editingHistory)
+            
+//            Button("操作履历: \(viewModel.history.count)") {
+//                self.editingHistory = true
+//            }.sheet(isPresented: $editingHistory) {
+//                HistroyView(editingHistory: $editingHistory)
+//            }
             
             Spacer()
             
@@ -28,14 +32,25 @@ struct ContentView: View {
                 .padding(.trailing, 24)
                 .lineLimit(1)
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
+                .alert(viewModel.brain.output, isPresented: $showingResult) {
+                    Button("okk") {
+                        
+                    }
+                }.onTapGesture {
+                    self.showingResult.toggle()
+                }
             
             Button("Test") {    // 2
                 self.viewModel.brain = .left("1.23")
+                self.viewModel.brain = .left("2.23")
             }
             .font(.largeTitle)
             
-            CalculatorButtonPad(model: viewModel)
+            CalculatorButtonPad()
                 .padding(.bottom)
+        }
+        .onChange(of: viewModel.brain) { newValue in
+            print(newValue.output)
         }
         .scaleEffect(Self.scale)
     }
@@ -46,7 +61,6 @@ extension ContentView {
 }
 
 struct CalculatorButtonPad: View {
-    var model: CalculatorViewModel
     let pad: [[CalculatorButtonItem]] = [
         [.command(.clear), .command(.flip),
          .command(.percent), .op(.divide)],
@@ -59,14 +73,14 @@ struct CalculatorButtonPad: View {
     var body: some View {
         VStack(spacing: 8) {
             ForEach(pad, id: \.self) { row in
-                CalculatorButtonRow(model: model, row: row)
+                CalculatorButtonRow(row: row)
             }
         }
     }
 }
 
 struct CalculatorButtonRow : View {
-    var model: CalculatorViewModel
+    @EnvironmentObject var viewModel: CalculatorViewModel
     let row: [CalculatorButtonItem]
     
     var body: some View {
@@ -78,7 +92,7 @@ struct CalculatorButtonRow : View {
                     backgroundColorName: item.backgroundColorName)
                 {
                     print("Button: \(item.title)")
-                    self.model.apply(item)
+                    self.viewModel.apply(item)
                 }
             }
         }
@@ -113,9 +127,9 @@ struct CalculatorButton: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView().environmentObject(CalculatorViewModel())
 //            .environment(\.colorScheme, .dark)
-        ContentView().previewDevice("iPhone SE (3rd generation)")
-        ContentView().previewDevice("iPad Air (5th generation)")
+//        ContentView().previewDevice("iPhone SE (3rd generation)")
+//        ContentView().previewDevice("iPad Air (5th generation)")
     }
 }

@@ -10,7 +10,7 @@ import Foundation
 typealias CalculatorState = CalculatorBrain
 typealias CalculatorStateAction = CalculatorButtonItem
 
-enum CalculatorBrain {
+enum CalculatorBrain: Equatable {
     case left(String)   // 1
     case leftOp(
         left: String,
